@@ -1,0 +1,4 @@
+PAPER:id,name,reference,quantity,createdAt,updatedAt
+ENVELOPE:id,name,reference,quantity,createdAt,updatedAt
+CONSUMABLE:id,name,family,reference,quantity,createdAt,updatedAt
+SUPPLY:id,name,reference,quantity,createdAt,updatedAt

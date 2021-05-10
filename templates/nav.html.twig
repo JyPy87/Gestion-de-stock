@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Gestion de stock</a>
+    <a class="navbar-brand" href="{{path('home')}}">Gestion de stock</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Acceuil</a>
+          <a class="nav-link" href="#">Mouvement de stock</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Inventaire</a>
@@ -16,16 +16,17 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Articles</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Item#1</a>
-            <a class="dropdown-item" href="#">Item#2</a>
-            <a class="dropdown-item" href="#">Item#3</a>
+            <a class="dropdown-item" href="{{path('paper_list')}}">Papier</a>
+            <a class="dropdown-item" href="#">Enveloppe</a>
+            <a class="dropdown-item" href="#">Consommable</a>
+            <a class="dropdown-item" href="#">Fourniture</a>
           </div>
         </li>
       </ul>
-    <!-->  <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> !-->
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Reference, article...">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Recherche</button>
+      </form>
     </div>
   </div>
 </nav>

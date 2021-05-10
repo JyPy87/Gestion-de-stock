@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>Menu papier</h1>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Nom</th>
+				<th scope="col">Reference</th>
+				<th scope="col">Quantity en stock</th>
+				<th scope="col">Mouvement</th>
+			</tr>
+		</thead>
+
+		{% for paper in papers %}
+
+			<tr class="table-light">
+				<th scope="row">
+					<a href="{{path('paper_item',{'id':paper.id})}}">{{paper.name}}</a>
+				</th>
+				<td>{{paper.reference}}</td>
+
+				<td>{{paper.quantity}}
+					ex.</td>
+				<td>
+					<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+				</td>
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+{% endblock %}
