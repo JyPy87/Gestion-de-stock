@@ -17,18 +17,21 @@
 		{% for paper in papers %}
 
 			<tr class="table-light">
+
 				<th scope="row">
 					<a href="{{path('paper_item',{'id':paper.id})}}">{{paper.name}}</a>
 				</th>
+
 				<td>{{paper.reference}}</td>
 
 				<td>{{paper.quantity}}
 					ex.</td>
 				<td>
-					<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+					<button type="button" class="btn btn-primary">
+						Mouvement
+					</button>
 				</td>
 			</tr>
-
 		{% endfor %}
 
 	</table>
