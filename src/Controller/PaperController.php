@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Repository\PaperRepository;
 use App\Entity\Paper;
+use App\Repository\PaperRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,4 +37,17 @@ class PaperController extends AbstractController
             'paper'=>$paper,
         ]);
     }
+    /**
+     * @Route("/paper/add", name="add")
+     */
+    public function add(EntityManagerInterface $em){
+
+        $paper = new Paper();
+        $paper->setName('AAA');
+        $paper->setReference('BBB');
+        $em->persist($paper);
+        $em->flush();
+        return $this->redirectToRoute('paper_list');
+    }
 }
+

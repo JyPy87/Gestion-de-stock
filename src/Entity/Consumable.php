@@ -47,6 +47,12 @@ class Consumable
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->updatedAt=new \DateTime();
+        $this->createdAt=new \Datetime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
