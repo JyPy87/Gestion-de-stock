@@ -1,0 +1,7 @@
+App\Entity\Genre:
+    genre_{1..23}:
+        name: '<word()>' 
+
+App\Entity\Movie:
+    movie_{1..50}:
+        title: '<text(55)>'  
