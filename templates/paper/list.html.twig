@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-between mt-4">
 	<h1 class="mt-1">Stock papier</h1>
-	<button type="button" class="btn btn-primary">Ajouter</button>
+	<a href="{{path('paper_add')}}"><button type="button" class="btn btn-primary">Ajouter</button></a>
 </div>
 	<table class="table table-hover">
 		<thead>
@@ -28,9 +28,7 @@
 
 				<td>{{paper.quantity}} ex.</td>
 				<td>
-					<button type="button" class="btn btn-primary">
-						Mouvement
-					</button>
+					
 				</td>
 			</tr>
 		{% endfor %}

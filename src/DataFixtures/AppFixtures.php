@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Nelmio\Alice\Loader\NativeLoader; 
 
 class AppFixtures extends Fixture
 {

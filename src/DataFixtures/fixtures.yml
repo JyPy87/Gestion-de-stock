@@ -1,7 +1,6 @@
-App\Entity\Genre:
-    genre_{1..23}:
-        name: '<word()>' 
+App\Entity\Paper:
+    paper{1..50}:
+        name (unique): '<word()>' 
+        reference (unique): <numberBetween(1,4000)>
+        quantity : <numberBetween(1000,200000)>
 
-App\Entity\Movie:
-    movie_{1..50}:
-        title: '<text(55)>'  
