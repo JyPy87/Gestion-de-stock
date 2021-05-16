@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route(name="paper_")
+ * @Route("/paper/", name="paper_")
  */
 class PaperController extends AbstractController
 {
     /**
-     * @Route("/paper/list", name="list")
+     * @Route("list", name="list")
      */
     public function list(PaperRepository $paperRepository): Response
     {
@@ -28,7 +28,7 @@ class PaperController extends AbstractController
     }
 
     /**
-     * @Route("/paper/{id}", name="item", requirements={"id"="\d+"} )
+     * @Route("{id}", name="item", requirements={"id"="\d+"} )
      */
     public function item(Paper $paper)
     {
@@ -37,7 +37,7 @@ class PaperController extends AbstractController
         ]);
     }
     /**
-     * @Route("/paper/add", name="add")
+     * @Route("add", name="add")
      */
     public function add(Request $request, EntityManagerInterface $em){
 
@@ -60,6 +60,19 @@ class PaperController extends AbstractController
         return $this->render('paper/add.html.twig',[
             'form' => $form->createView(),
         ]);
+    }
+    /**
+     * @Route("delete/{id}", name="delete")
+     */
+    public function delete(Paper $paper)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($paper);
+        $em->flush();
+
+        // On redirige sur la liste des départements
+        return $this->redirectToRoute('paper_list');
+
     }
 }
 
