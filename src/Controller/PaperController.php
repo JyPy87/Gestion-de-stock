@@ -43,6 +43,7 @@ class PaperController extends AbstractController
 
         $paper = new Paper();
         $form = $this->createForm(AddPaperType::class,$paper);
+
         $form->handleRequest($request);
 
 
@@ -50,7 +51,6 @@ class PaperController extends AbstractController
             // Si tout est bon, on récupère l'EntityManager, on periste $recipe et on flushe
 
             $paper->setCreatedAt(new \DateTime());
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($paper);
             $em->flush();

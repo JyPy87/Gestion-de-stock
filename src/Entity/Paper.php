@@ -38,13 +38,12 @@ class Paper
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
 
     public function __construct()
     {
-        $this->updatedAt=new \DateTime();
         $this->createdAt=new \Datetime();
     }
 

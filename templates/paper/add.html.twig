@@ -2,10 +2,33 @@
 
 {% block body %}
 
-{{form_start(form)}}
+	<div class="mb-3">
 
+		{{form_start(form)}}
 
-    <button>Ajouter</button>
-{{form_end(form)}}
+		<div class="form-label">
+			{{form_label(form.name,'Nom')}}
+		</div>
+		<div class="form-control">
+			{{form_widget(form.name)}}
+		</div>
+
+		<div class="form-label">
+			{{form_label(form.reference,'Réference')}}
+		</div>
+		<div class="form-control">
+			{{form_widget(form.reference) }}
+		</div>
+
+		<div class="form-label">
+			{{form_label(form.quantity,'Quantité')}}
+		</div>
+		<div class="form-control">
+			{{form_widget(form.quantity) }}
+		</div>
+
+		<button class="btn btn-primary mt-3">Ajouter</button>
+		{{form_end(form)}}
+	</div>
 
 {% endblock %}
