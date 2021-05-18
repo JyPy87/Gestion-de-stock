@@ -42,6 +42,11 @@ class Supply
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Machine::class, inversedBy="supplies")
+     */
+    private $machine;
+
     public function __construct()
     {
         $this->updatedAt=new \DateTime();
@@ -109,6 +114,18 @@ class Supply
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getMachine(): ?Machine
+    {
+        return $this->machine;
+    }
+
+    public function setMachine(?Machine $machine): self
+    {
+        $this->machine = $machine;
 
         return $this;
     }
