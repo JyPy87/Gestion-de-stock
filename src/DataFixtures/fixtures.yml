@@ -3,4 +3,19 @@ App\Entity\Paper:
         name (unique): '<word()>' 
         reference (unique): <numberBetween(1,4000)>
         quantity : <numberBetween(1000,200000)>
+        createdAt: '<dateTimeBetween("-4 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
 
+App\Entity\Supply:
+    supply{1..35}:
+        name (unique): '<word()>'
+        reference (unique): <numberBetween(1,2000)>
+        quantity : <numberBetween(1,10)>
+        createdAt: '<dateTimeBetween("-4 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
+        machine : '<numberBetween(1,5)>x @machine_*'
+        
+App\Entity\Machine:
+    machine{1..5}:
+        name (unique): '<word()>'
+   

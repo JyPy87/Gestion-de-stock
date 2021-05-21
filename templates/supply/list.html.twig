@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="d-flex justify-content-between mt-4">
+	<h1 class="mt-1">Stock fournitures</h1>
+	<a href="#"><button type="button" class="btn btn-primary">Ajouter</button></a>
+</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Nom</th>
+				<th scope="col">Reference</th>
+				<th scope="col">Quantity en stock</th>
+                <th scope="col">Machine</th>
+				<th scope="col">Mouvement</th>
+			</tr>
+		</thead>
+
+		{% for supply in supplies %}
+
+			<tr class="table-light">
+
+				<th scope="row">
+					<a href="{{path('supply_item',{'id':supply.id})}}">{{supply.name}}</a>
+				</th>
+
+				<td>{{supply.reference}}</td>
+
+				<td>{{supply.quantity}} ex.</td>
+                <td>{{supply.machine}}</td>
+				<td>
+					
+				</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endblock %}
