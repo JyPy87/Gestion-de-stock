@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Entity\Supply;
 use App\Form\SupplyType;
@@ -11,17 +11,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/supply/", name="supply_")
+ * @Route("stock/supply/", name="supply_")
  */
 class SupplyController extends AbstractController
 {
     /**
-     * @Route("list", name="list")
+     * @Route("browse", name="browse")
      */
-    public function list(SupplyRepository $paperRepository): Response
+    public function browse(SupplyRepository $paperRepository): Response
     {
         $supplies=$paperRepository->findAll();
-        return $this->render('supply/list.html.twig', [
+        return $this->render('stock/supply/browse.html.twig', [
             'supplies'=>$supplies,
         ]);
     }
@@ -31,7 +31,7 @@ class SupplyController extends AbstractController
      */
     public function item(Supply $supply)
     {
-        return $this->render('paper/item.html.twig',[
+        return $this->render('stock/supply/item.html.twig',[
             'supply'=>$supply,
         ]);
     }

@@ -13,7 +13,8 @@
 				<th scope="col">Reference</th>
 				<th scope="col">Quantity en stock</th>
                 <th scope="col">Machine</th>
-				<th scope="col">Mouvement</th>
+				<th scope="col">Date de création</th>
+				<th scope="col">Dernière modification</th>
 			</tr>
 		</thead>
 
@@ -26,12 +27,10 @@
 				</th>
 
 				<td>{{supply.reference}}</td>
-
 				<td>{{supply.quantity}} ex.</td>
                 <td>{{supply.machine}}</td>
-				<td>
-					
-				</td>
+				<td>{{supply.createdAt|date('d-m-Y') }}</td>
+				<td>{{supply.updatedAt is not null ? supply.updatedAt|date('d-m-Y')}}</td>
 			</tr>
 		{% endfor %}
 

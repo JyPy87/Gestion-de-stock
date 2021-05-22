@@ -49,7 +49,6 @@ class Supply
 
     public function __construct()
     {
-        $this->updatedAt=new \DateTime();
         $this->createdAt=new \Datetime();
     }
 

@@ -1,42 +1,21 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Paper;
-use App\Form\AddPaperType;
-use App\Repository\PaperRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/paper/", name="paper_")
+ * @Route("stock\admin\", name="paper_")
  */
 class PaperController extends AbstractController
 {
-    /**
-     * @Route("list", name="list")
-     */
-    public function list(PaperRepository $paperRepository): Response
-    {
-        $papers=$paperRepository->findAll();
-        return $this->render('paper/list.html.twig', [
-            'papers'=>$papers,
-        ]);
-    }
-
-    /**
-     * @Route("{id}", name="item", requirements={"id"="\d+"} )
-     */
-    public function item(Paper $paper)
-    {
-        return $this->render('paper/item.html.twig',[
-            'paper'=>$paper,
-        ]);
-    }
-    /**
+      /**
      * @Route("add", name="add")
      */
     public function add(Request $request, EntityManagerInterface $em){
@@ -48,7 +27,6 @@ class PaperController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Si tout est bon, on récupère l'EntityManager, on periste $recipe et on flushe
 
             $paper->setCreatedAt(new \DateTime());
             $em = $this->getDoctrine()->getManager();
@@ -71,8 +49,7 @@ class PaperController extends AbstractController
         $em->flush();
 
         // On redirige sur la liste des départements
-        return $this->redirectToRoute('paper_list');
+        return $this->redirectToRoute('paper_browse');
 
     }
 }
-
