@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\User;
+namespace App\Controller;
 
 use App\Entity\Supply;
 use App\Form\SupplyType;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("stock/supply/", name="supply_")
+ * @Route("supply/", name="supply_")
  */
 class SupplyController extends AbstractController
 {

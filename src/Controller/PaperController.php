@@ -1,27 +1,53 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use App\Entity\Paper;
-use Doctrine\ORM\EntityManager;
+use App\Form\AddPaperType;
+use App\Repository\PaperRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("stock\admin\", name="paper_")
+ * @Route("paper/", name="paper_")
  */
+
 class PaperController extends AbstractController
 {
-      /**
+    /**
+     * @Route("browse", name="browse")
+     */
+    public function browse(PaperRepository $paperRepository): Response
+    {
+        $papers = $paperRepository->findAll();
+        return $this->render('paper/browse.html.twig', [
+            'papers' => $papers,
+        ]);
+    }
+
+    /**
+     * @Route("read/{id}", name="read", requirements={"id"="\d+"} )
+     */
+    public function read(Paper $paper)
+    {
+        return $this->render('paper/read.html.twig', [
+            'paper' => $paper,
+        ]);
+    }
+
+    /**
      * @Route("add", name="add")
      */
-    public function add(Request $request, EntityManagerInterface $em){
+    public function add(Request $request, EntityManagerInterface $em)
+    {
+        $paper = new Paper;
 
-        $paper = new Paper();
-        $form = $this->createForm(AddPaperType::class,$paper);
+        $this->denyAccessUnlessGranted('ADD',$paper);
+
+        $form = $this->createForm(AddPaperType::class, $paper);
 
         $form->handleRequest($request);
 
@@ -35,7 +61,7 @@ class PaperController extends AbstractController
 
             return $this->redirectToRoute('paper_list');
         }
-        return $this->render('paper/add.html.twig',[
+        return $this->render('paper/add.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -44,12 +70,13 @@ class PaperController extends AbstractController
      */
     public function delete(Paper $paper)
     {
+        $this->denyAccessUnlessGranted('DELETE',$paper);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($paper);
         $em->flush();
 
         // On redirige sur la liste des départements
         return $this->redirectToRoute('paper_browse');
-
     }
 }
