@@ -19,6 +19,8 @@ class UserController extends AbstractController
     public function editPassword(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $user = $this->getUser();
+       
+        $this->denyAccessUnlessGranted('EDIT_PASSWORD',$user);
 
         $form = $this->createForm(UserPasswordType::class, $user);
 
@@ -33,7 +35,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'Mot de passe modifié.');
 
-            return $this->redirectToRoute('user_profile');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('user/edit_password.html.twig', [

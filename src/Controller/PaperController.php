@@ -45,7 +45,7 @@ class PaperController extends AbstractController
     {
         $paper = new Paper;
 
-        $this->denyAccessUnlessGranted('ADD',$paper);
+        //$this->denyAccessUnlessGranted('ADD',$paper);
 
         $form = $this->createForm(AddPaperType::class, $paper);
 
@@ -70,7 +70,7 @@ class PaperController extends AbstractController
      */
     public function delete(Paper $paper)
     {
-        $this->denyAccessUnlessGranted('DELETE',$paper);
+       // $this->denyAccessUnlessGranted('DELETE',$paper);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($paper);
