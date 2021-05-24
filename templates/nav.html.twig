@@ -1,41 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{path('home')}}">Gestion de stock</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{path('home')}}">Gestion de stock</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mouvement de stock</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Inventaire</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Articles</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{path('paper_browse')}}">Papier</a>
-            <a class="dropdown-item" href="#">Enveloppe</a>
-            <a class="dropdown-item" href="#">Consommable</a>
-            <a class="dropdown-item" href="{{path('supply_browse')}}">Fourniture</a>
-          </div>
-        </li>
-        
-        <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{app.user.firstname}} {{app.user.lastname}}</a>
-           <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{path('user_edit_password')}}">Modifier mot de passe</a>
-            <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Reference, article...">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Recherche</button>
-      </form>
-    </div>
-  </div>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Mouvement de stock</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Inventaire</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Articles</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{path('paper_browse')}}">Papier</a>
+						<a class="dropdown-item" href="#">Enveloppe</a>
+						<a class="dropdown-item" href="#">Consommable</a>
+						<a class="dropdown-item" href="{{path('supply_browse')}}">Fourniture</a>
+					</div>
+				</li>
+
+				{% if is_granted('ROLE_SUPERADMIN') %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{path('user_browse')}}">Gestion utilisateurs</a>
+					</li>
+				{% endif %}
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{app.user.firstname}}
+						{{app.user.lastname}}</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{path('user_edit_password')}}">Modifier mot de passe</a>
+						<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+					</div>
+				</li>
+			</ul>
+			<form class="d-flex">
+				<input class="form-control me-sm-2" type="text" placeholder="Reference, article...">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Recherche</button>
+			</form>
+		</div>
+	</div>
 </nav>
-

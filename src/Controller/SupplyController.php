@@ -21,7 +21,7 @@ class SupplyController extends AbstractController
     public function browse(SupplyRepository $paperRepository): Response
     {
         $supplies=$paperRepository->findAll();
-        return $this->render('stock/supply/browse.html.twig', [
+        return $this->render('supply/browse.html.twig', [
             'supplies'=>$supplies,
         ]);
     }
@@ -31,7 +31,7 @@ class SupplyController extends AbstractController
      */
     public function item(Supply $supply)
     {
-        return $this->render('stock/supply/item.html.twig',[
+        return $this->render('supply/item.html.twig',[
             'supply'=>$supply,
         ]);
     }

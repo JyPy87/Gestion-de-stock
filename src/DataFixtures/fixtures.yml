@@ -13,9 +13,9 @@ App\Entity\Supply:
         quantity : <numberBetween(1,10)>
         createdAt: '<dateTimeBetween("-4 years", "now")>'
         updatedAt: '<dateTimeBetween($createdAt, "now")>'
-        machine : '<numberBetween(1,5)>x @machine_*'
+        machine : '@machine*'
         
 App\Entity\Machine:
     machine{1..5}:
         name (unique): '<word()>'
-   
+

@@ -1,4 +1,11 @@
-PAPER:id,name,reference,quantity,createdAt,updatedAt
-ENVELOPE:id,name,reference,quantity,createdAt,updatedAt
-CONSUMABLE:id,name,family,reference,quantity,createdAt,updatedAt
-SUPPLY:id,name,reference,quantity,createdAt,updatedAt
+HAS, 0N SUPPLY, 01 MACHINE
+SUPPLY: _name,reference,quantity,createdAt,updatedAt,machine_id
+:
+
+MACHINE: _name
+PAPER: _name,reference,quantity,createdAt,updatedAt
+ENVELOPE: _name,reference,quantity,createdAt,updatedAt
+
+USE, 0N CONSUMABLE, 01 MACHINE
+CONSUMABLE: _name,family,reference,quantity,createdAt,updatedAt,machine_id
+USER: _email, roles, password, firstname,lastname

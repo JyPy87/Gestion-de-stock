@@ -35,9 +35,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/paper/(add|edit|delete), roles: ROLE_ADMIN }
-         - { path: ^/paper, roles: ROLE_USER }
-         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/(browse|add|delete), roles: ROLE_SUPERADMIN }
+        - { path: ^/paper/(add|edit|delete), roles: ROLE_ADMIN }
+        - { path: ^/paper, roles: ROLE_USER }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
     role_hierarchy:
         ROLE_SUPERADMIN: ROLE_ADMIN

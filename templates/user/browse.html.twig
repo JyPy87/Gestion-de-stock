@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">e-mail</th>
+				<th scope="col">Prénom
+				</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Rôle</th>
+				<th>
+					<a href="{{path('user_add')}}">
+						<button type="button" class="btn btn-primary">Ajouter</button>
+					</a>
+				</th>
+			</tr>
+		</thead>
+
+		{% for user in users %}
+
+			<tr class="table-light">
+				<td>{{user.email}}</td>
+				<td>{{user.firstname}}</td>
+				<td>{{user.lastname}}</td>
+				<td>{{user.roles[0]}}</td>
+				<td>
+					<a href="{{path('user_delete',{'id':user.id}) }}">
+						<button type="button" class="btn btn-danger">Supprimer</button>
+					</a>
+				</td>
+
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+{% endblock %}
