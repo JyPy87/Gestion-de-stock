@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserPasswordType;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,6 +54,34 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/edit_password.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+       /**
+     * @Route("add", name="add")
+     */
+    public function add(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+        $user = new User();
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Encodage du mot de passe
+            $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('user_browse');
+        }
+
+        return $this->render('user/add.html.twig', [
             'form' => $form->createView(),
         ]);
     }
