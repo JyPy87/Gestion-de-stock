@@ -5,12 +5,11 @@ namespace App\Form;
 use App\Entity\Paper;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Range;
 
 class AddPaperType extends AbstractType
 {
@@ -23,12 +22,17 @@ class AddPaperType extends AbstractType
             ])
             ->add('reference',TextType::class,
             [
-                'constraints'=>new NotBlank(['message'=>'Veuillez completer ce champ']),
+                'constraints'=>[
+                    new NotBlank(['message'=>'Veuillez completer ce champ']),
+                    new Length(['min'=>5,'max'=>5]),
+                ],
             ])
             ->add('quantity', IntegerType::class, 
             [
-                'constraints' => new Range(['min' => 0]),
-                'attr' => ['min' => 0],
+                'constraints'=>[
+                    new NotBlank(['message'=>'Ne peut être vide']),
+                ],
+                'attr'=>['min'=>0]
             ])
         ;
     }

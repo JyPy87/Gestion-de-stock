@@ -19,3 +19,26 @@ App\Entity\Machine:
     machine{1..5}:
         name (unique): '<word()>'
 
+App\Entity\User:
+    user_1:
+        email: 'sa@mail'
+        roles: ["ROLE_SUPERADMIN"]
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'SuAdmin'
+    user_2:
+        email: 'a@mail'
+        roles: ["ROLE_ADMIN"]
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'Admin'
+    user_3:
+        email: 'u@mail'
+        roles: ["ROLE_USER"]
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'User'
+
+
+
+

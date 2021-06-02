@@ -59,7 +59,7 @@ class PaperController extends AbstractController
             $em->persist($paper);
             $em->flush();
 
-            return $this->redirectToRoute('paper_list');
+            return $this->redirectToRoute('paper_browse');
         }
         return $this->render('paper/add.html.twig', [
             'form' => $form->createView(),
