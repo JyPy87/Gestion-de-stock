@@ -34,7 +34,7 @@ class Paper
     private $reference;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      * @Assert\Type(type="integer")
      */     
     private $quantity;
