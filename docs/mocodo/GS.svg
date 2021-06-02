@@ -1,0 +1,131 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="318" height="465" view_box="0 0 318 465"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Wed, 02 Jun 2021 05:23:48</desc>
+
+<rect id="frame" x="0" y="0" width="318" height="465" fill="#f7f7f7" stroke="none" stroke-width="0"/>
+
+<!-- Association USE -->
+<line x1="57" y1="85" x2="160" y2="85" stroke="#4393c3" stroke-width="2"/>
+<text x="110" y="102.0" fill="#b2182b" font-family="Verdana" font-size="12">0,N</text>
+<line x1="269" y1="85" x2="160" y2="85" stroke="#4393c3" stroke-width="2"/>
+<text x="209" y="102.0" fill="#b2182b" font-family="Verdana" font-size="12">0,1</text>
+<g id="association-USE">
+	<path d="M 166 60 a 14 14 90 0 1 14 14 V 85 h -40 V 74 a 14 14 90 0 1 14 -14" fill="#92c5de" stroke="#92c5de" stroke-width="0"/>
+	<path d="M 180 85.0 v 11 a 14 14 90 0 1 -14 14 H 154 a 14 14 90 0 1 -14 -14 V 85.0 H 40" fill="#d1e5f0" stroke="#d1e5f0" stroke-width="0"/>
+	<rect x="140" y="60" width="40" height="50" fill="none" rx="14" stroke="#4393c3" stroke-width="2"/>
+	<line x1="140" y1="85" x2="180" y2="85" stroke="#4393c3" stroke-width="1"/>
+	<text x="147" y="77.7" fill="#000000" font-family="Verdana" font-size="12">USE</text>
+</g>
+
+<!-- Association HAS -->
+<line x1="269" y1="388" x2="269" y2="245" stroke="#4393c3" stroke-width="2"/>
+<text x="274.0" y="312" fill="#b2182b" font-family="Verdana" font-size="12">0,N</text>
+<line x1="269" y1="85" x2="269" y2="245" stroke="#4393c3" stroke-width="2"/>
+<text x="274.0" y="127" fill="#b2182b" font-family="Verdana" font-size="12">0,1</text>
+<g id="association-HAS">
+	<path d="M 275 220 a 14 14 90 0 1 14 14 V 245 h -40 V 234 a 14 14 90 0 1 14 -14" fill="#92c5de" stroke="#92c5de" stroke-width="0"/>
+	<path d="M 289 245.0 v 11 a 14 14 90 0 1 -14 14 H 263 a 14 14 90 0 1 -14 -14 V 245.0 H 40" fill="#d1e5f0" stroke="#d1e5f0" stroke-width="0"/>
+	<rect x="249" y="220" width="40" height="50" fill="none" rx="14" stroke="#4393c3" stroke-width="2"/>
+	<line x1="249" y1="245" x2="289" y2="245" stroke="#4393c3" stroke-width="1"/>
+	<text x="256" y="237.7" fill="#000000" font-family="Verdana" font-size="12">HAS</text>
+</g>
+
+<!-- Entity SUPPLY -->
+<g id="entity-SUPPLY">
+	<g id="frame-SUPPLY">
+		<rect x="229" y="320" width="80" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="229" y="345.0" width="80" height="111" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="229" y="320" width="80" height="136" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="229" y1="345" x2="309" y2="345" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="245" y="337.7" fill="#000000" font-family="Verdana" font-size="12">SUPPLY</text>
+	<text x="234" y="362.7" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="234" y="379.7" fill="#000000" font-family="Verdana" font-size="12">reference</text>
+	<text x="234" y="396.8" fill="#000000" font-family="Verdana" font-size="12">quantity</text>
+	<text x="234" y="413.8" fill="#000000" font-family="Verdana" font-size="12">createdAt</text>
+	<text x="234" y="430.8" fill="#000000" font-family="Verdana" font-size="12">updatedAt</text>
+	<text x="234" y="447.8" fill="#000000" font-family="Verdana" font-size="12">machine_id</text>
+</g>
+
+<!-- Entity ENVELOPE -->
+<g id="entity-ENVELOPE">
+	<g id="frame-ENVELOPE">
+		<rect x="123" y="186" width="74" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="123" y="211.0" width="74" height="93" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="123" y="186" width="74" height="118" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="123" y1="211" x2="197" y2="211" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="128" y="203.7" fill="#000000" font-family="Verdana" font-size="12">ENVELOPE</text>
+	<text x="128" y="228.7" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="128" y="245.8" fill="#000000" font-family="Verdana" font-size="12">reference</text>
+	<text x="128" y="262.8" fill="#000000" font-family="Verdana" font-size="12">quantity</text>
+	<text x="128" y="279.8" fill="#000000" font-family="Verdana" font-size="12">createdAt</text>
+	<text x="128" y="296.8" fill="#000000" font-family="Verdana" font-size="12">updatedAt</text>
+</g>
+
+<!-- Entity MACHINE -->
+<g id="entity-MACHINE">
+	<g id="frame-MACHINE">
+		<rect x="235" y="60" width="68" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="235" y="85.0" width="68" height="25" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="235" y="60" width="68" height="50" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="235" y1="85" x2="303" y2="85" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="240" y="77.7" fill="#000000" font-family="Verdana" font-size="12">MACHINE</text>
+	<text x="240" y="102.8" fill="#000000" font-family="Verdana" font-size="12">name</text>
+</g>
+
+<!-- Entity PAPER -->
+<g id="entity-PAPER">
+	<g id="frame-PAPER">
+		<rect x="123" y="329" width="74" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="123" y="354.0" width="74" height="93" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="123" y="329" width="74" height="118" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="123" y1="354" x2="197" y2="354" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="140" y="346.7" fill="#000000" font-family="Verdana" font-size="12">PAPER</text>
+	<text x="128" y="371.7" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="128" y="388.8" fill="#000000" font-family="Verdana" font-size="12">reference</text>
+	<text x="128" y="405.8" fill="#000000" font-family="Verdana" font-size="12">quantity</text>
+	<text x="128" y="422.8" fill="#000000" font-family="Verdana" font-size="12">createdAt</text>
+	<text x="128" y="439.8" fill="#000000" font-family="Verdana" font-size="12">updatedAt</text>
+</g>
+
+<!-- Entity USER -->
+<g id="entity-USER">
+	<g id="frame-USER">
+		<rect x="23" y="329" width="68" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="23" y="354.0" width="68" height="93" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="23" y="329" width="68" height="118" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="23" y1="354" x2="91" y2="354" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="40" y="346.7" fill="#000000" font-family="Verdana" font-size="12">USER</text>
+	<text x="28" y="371.7" fill="#000000" font-family="Verdana" font-size="12">email</text>
+	<text x="28" y="388.8" fill="#000000" font-family="Verdana" font-size="12">roles</text>
+	<text x="28" y="405.8" fill="#000000" font-family="Verdana" font-size="12">password</text>
+	<text x="28" y="422.8" fill="#000000" font-family="Verdana" font-size="12">firstname</text>
+	<text x="28" y="439.8" fill="#000000" font-family="Verdana" font-size="12">lastname</text>
+</g>
+
+<!-- Entity CONSUMABLE -->
+<g id="entity-CONSUMABLE">
+	<g id="frame-CONSUMABLE">
+		<rect x="9" y="9" width="96" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="9" y="34.0" width="96" height="127" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="9" y="9" width="96" height="152" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="9" y1="34" x2="105" y2="34" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="14" y="26.7" fill="#000000" font-family="Verdana" font-size="12">CONSUMABLE</text>
+	<text x="14" y="51.7" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="14" y="68.7" fill="#000000" font-family="Verdana" font-size="12">family</text>
+	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">reference</text>
+	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">quantity</text>
+	<text x="14" y="119.8" fill="#000000" font-family="Verdana" font-size="12">createdAt</text>
+	<text x="14" y="136.8" fill="#000000" font-family="Verdana" font-size="12">updatedAt</text>
+	<text x="14" y="153.8" fill="#000000" font-family="Verdana" font-size="12">machine_id</text>
+</g>
+</svg>
