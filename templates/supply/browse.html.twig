@@ -4,14 +4,18 @@
 
 <div class="d-flex justify-content-between mt-4">
 	<h1 class="mt-1">Stock fournitures</h1>
-	<a href="#"><button type="button" class="btn btn-primary">Ajouter</button></a>
+	{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{path('supply_add')}}">
+				<button type="button" class="btn btn-primary">Ajouter</button>
+			</a>
+		{% endif %}
 </div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th scope="col">Nom</th>
 				<th scope="col">Reference</th>
-				<th scope="col">Quantity en stock</th>
+				<th scope="col">Quantité en stock</th>
                 <th scope="col">Machine</th>
 				<th scope="col">Date de création</th>
 				<th scope="col">Dernière modification</th>

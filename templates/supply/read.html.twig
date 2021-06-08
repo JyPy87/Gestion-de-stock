@@ -4,12 +4,14 @@
 
 	<div class="card text-white bg-primary mt-3 mb-3 text-center" style="max-width: 20rem;">
 		<div class="card-header">Réference :
-			{{ paper.reference }}</div>
+			{{ supply.reference }}</div>
 		<div class="card-body">
 			<h4 class="card-title">Nom :
-				{{ paper.name }}</h4>
+				{{ supply.name }}</h4>
+			<p class="card-text">Machine associée :
+				{{ supply.machine}}</p>
 			<p class="card-text">Quantité :
-				{{paper.quantity}}</p>
+				{{supply.quantity}}</p>
 		</div>
 	</div>
 
@@ -17,10 +19,7 @@
 		<button type="button" class="btn btn-primary">Entrée</button>
 		<button type="button" class="btn btn-secondary">Sortie</button>
 		{% if is_granted('ROLE_ADMIN') %}
-			<a href="{{path('paper_edit',{'id':paper.id}) }}">
-				<button type="button" class="btn btn-warning">Modifier</button>
-			</a>
-			<a href="{{path('paper_delete',{'id':paper.id}) }}">
+			<a href="{{path('supply_delete',{'id':supply.id}) }}">
 				<button type="button" class="btn btn-danger">Supprimer</button>
 			</a>
 		{% endif %}

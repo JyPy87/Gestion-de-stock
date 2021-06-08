@@ -39,6 +39,26 @@ class PaperController extends AbstractController
     }
 
     /**
+     * @Route("edit/{id}", name="edit", requirements={"id"="\d+"})
+     */
+    public function edit(Paper $paper, Request $request): Response
+    {
+       
+        $form = $this->createForm(AddPaperType::class, $paper);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+          
+            $paper->setUpdatedAt(new \DateTime());
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('paper_browse');
+        }  
+        return $this->render('paper/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("add", name="add")
      */
     public function add(Request $request, EntityManagerInterface $em)
@@ -65,12 +85,13 @@ class PaperController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("delete/{id}", name="delete")
      */
     public function delete(Paper $paper)
     {
-       // $this->denyAccessUnlessGranted('DELETE',$paper);
+        // $this->denyAccessUnlessGranted('DELETE',$paper);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($paper);
