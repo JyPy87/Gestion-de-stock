@@ -38,8 +38,10 @@ security:
         - { path: ^/user/(browse|add|delete), roles: ROLE_SUPERADMIN }
         - { path: ^/paper/(add|edit|delete), roles: ROLE_ADMIN }
         - { path: ^/supply/(add|edit|delete), roles: ROLE_ADMIN }
+        - { path: ^/envelope/(add|edit|delete), roles: ROLE_ADMIN }
         - { path: ^/paper, roles: ROLE_USER }
         - { path: ^/supply, roles: ROLE_USER}
+        - { path: ^/envelope, roles: ROLE_USER}
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
     role_hierarchy:

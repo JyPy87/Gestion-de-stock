@@ -3,9 +3,9 @@
 {% block body %}
 
 	<div class="d-flex justify-content-between mt-4">
-		<h1 class="mt-1">Stock papier</h1>
+		<h1 class="mt-1">Stock enveloppes</h1>
 		{% if is_granted('ROLE_ADMIN') %}
-			<a href="{{path('paper_add')}}">
+			<a href="{{path('envelope_add')}}">
 				<button type="button" class="btn btn-primary">Ajouter</button>
 			</a>
 		{% endif %}
@@ -21,19 +21,19 @@
 			</tr>
 		</thead>
 
-		{% for paper in papers %}
+		{% for envelope in envelopes %}
 
 			<tr class="table-light">
 
 				<th scope="row">
-					<a href="{{path('paper_read',{'id':paper.id}) }}">{{paper.name}}</a>
+					<a href="{{path('envelope_read',{'id':envelope.id}) }}">{{envelope.name}}</a>
 				</th>
 
-				<td>{{paper.reference}}</td>
-				<td>{{paper.quantity}}
+				<td>{{envelope.reference}}</td>
+				<td>{{envelope.quantity}}
 					ex.</td>
-				<td>{{paper.createdAt|date('d-m-Y') }}</td>
-				<td>{{paper.updatedAt is not null ? paper.updatedAt|date('d-m-Y')}}</td>
+				<td>{{envelope.createdAt|date('d-m-Y') }}</td>
+				<td>{{envelope.updatedAt is not null ? envelope.updatedAt|date('d-m-Y')}}</td>
 			</tr>
 		{% endfor %}
 
