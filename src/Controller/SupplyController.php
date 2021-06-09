@@ -39,6 +39,26 @@ class SupplyController extends AbstractController
     }
 
     /**
+     * @Route("edit/{id}", name="edit", requirements={"id"="\d+"})
+     */
+    public function edit(Supply $supply, Request $request): Response
+    {
+       
+        $form = $this->createForm(AddSupplyType::class, $supply);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+          
+            $supply->setUpdatedAt(new \DateTime());
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('supply_browse');
+        }  
+        return $this->render('supply/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("add", name="add")
      */
     public function add(Request $request, EntityManagerInterface $em)

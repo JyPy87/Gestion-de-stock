@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="d-flex justify-content-between mt-4">
+		<h1 class="mt-1">Stock papier</h1>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{path('paper_add')}}">
+				<button type="button" class="btn btn-primary">Ajouter</button>
+			</a>
+		{% endif %}
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Nom</th>
+				<th scope="col">Reference</th>
+				<th scope="col">Quantité en stock</th>
+				<th scope="col">Date de création</th>
+				<th scope="col">Derniere modification</th>
+			</tr>
+		</thead>
+
+		{% for paper in papers %}
+
+			<tr class="table-light">
+
+				<th scope="row">
+					<a href="{{path('paper_read',{'id':paper.id}) }}">{{paper.name}}</a>
+				</th>
+
+				<td>{{paper.reference}}</td>
+				<td>{{paper.quantity}}
+					ex.</td>
+				<td>{{paper.createdAt|date('d-m-Y') }}</td>
+				<td>{{paper.updatedAt is not null ? paper.updatedAt|date('d-m-Y')}}</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endblock %}

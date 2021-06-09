@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\EnvelopeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EnvelopeRepository::class)
+ * @UniqueEntity("reference", message="Cette réference existe déjà")
+ * @UniqueEntity("name", message="Ce nom existe déjà")
  */
 class Envelope
 {
@@ -18,17 +22,20 @@ class Envelope
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, unique=true)
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=5, unique=true)
+     * @Assert\NotBlank()
      */
     private $reference;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
+     * @Assert\Type(type="integer")
      */
     private $quantity;
 
@@ -38,7 +45,7 @@ class Envelope
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
 
