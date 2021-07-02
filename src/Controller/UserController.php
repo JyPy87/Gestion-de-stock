@@ -9,6 +9,7 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -31,7 +32,7 @@ class UserController extends AbstractController
     /**
      * @Route("edit/password", name="edit_password")
      */
-    public function editPassword(Request $request, UserPasswordEncoderInterface $encoder)
+    public function editPassword(Request $request, UserPasswordHasherInterface $encoder)
     {
         $user = $this->getUser();
 
@@ -43,7 +44,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
+            $user->setPassword($encoder->hashPassword($user, $user->getPassword()));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
@@ -61,7 +62,7 @@ class UserController extends AbstractController
        /**
      * @Route("add", name="add")
      */
-    public function add(Request $request, UserPasswordEncoderInterface $encoder)
+    public function add(Request $request, UserPasswordHasherInterface $encoder)
     {
         $user = new User();
 
@@ -71,7 +72,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Encodage du mot de passe
-            $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
+            $user->setPassword($encoder->hashPassword($user, $user->getPassword()));
 
 
             $entityManager = $this->getDoctrine()->getManager();
