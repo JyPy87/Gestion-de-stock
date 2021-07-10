@@ -1,5 +1,6 @@
-*Gestion de stock*
+#Gestion de stock
 
-Application web développé en PHP avec Symfony et l'ORM Doctrine
-Permet la gestion d'un stock d'une salle editique (papiers, consommables, fournitures etc...) avec une gestion des utilisateurs et des droits d'accès
+*work in progress*
 
+Web app developed with PHP, Symfony, Doctrine (and TWIG, CSS, Boostrap) 
+It's a personal project to manage the storage of a printing house. You can manage paper, envelopes, furnitures supply and machines
