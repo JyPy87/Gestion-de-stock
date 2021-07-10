@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="d-flex justify-content-between mt-4">
+		<h1 class="mt-1">Stock consommables</h1>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{path('envelope_add')}}">
+				<button type="button" class="btn btn-primary">Ajouter</button>
+			</a>
+		{% endif %}
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Nom</th>
+				<th scope="col">Reference</th>
+				<th scope="col">Quantité en stock</th>
+				<th scope="col">Machine</th>
+				<th scope="col">Date de création</th>
+				<th scope="col">Derniere modification</th>
+			</tr>
+		</thead>
+
+		{% for consumable in consumables %}
+
+			<tr class="table-light">
+
+				<th scope="row">
+					<a href="{{path('envelope_read',{'id':consumable.id}) }}">{{consumable.name}}</a>
+				</th>
+
+				<td>{{consumable.reference}}</td>
+				<td>{{consumable.quantity}}ex.</td>
+				<td>{{consumable.machine}}ex.</td>
+				<td>{{consumable.createdAt|date('d-m-Y') }}</td>
+				<td>{{consumable.updatedAt is not null ? consumable.updatedAt|date('d-m-Y')}}</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endblock %}
