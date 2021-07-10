@@ -1,61 +1,61 @@
 App\Entity\Machine:
-    machine{1..5}:
-        name (unique): "<word()>"
+    machine{1..10}:
+        name (unique): '<word()>'
 
 App\Entity\Paper:
-    paper{1..50}:
-        name (unique): "<word()>" 
-        reference (unique): <numberBetween(1,4000)>
-        quantity: <numberBetween(1000,200000)>
-        createdAt: "<dateTimeBetween("-4 years", "now")>"
-        updatedAt: "<dateTimeBetween($createdAt, "now")>"
+    paper_{1..50}:
+        name (unique): '<word()>' 
+        reference (unique): '<numberBetween(1,4000)>'
+        quantity: '<numberBetween(1000,200000)>'
+        createdAt: '<dateTimeBetween("-4 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
 
 App\Entity\Supply:
-    supply{1..35}:
-        name (unique): "<word()>"
-        reference (unique): <numberBetween(1,2000)>
-        quantity: <numberBetween(1,10)>
-        createdAt: "<dateTimeBetween("-4 years", "now")>"
-        updatedAt: "<dateTimeBetween($createdAt, "now")>"
-        machine: "@machine*"
+    supply_{1..50}:
+        machine: '@machine*'
+        name (unique): '<word()>'
+        reference (unique): '<numberBetween(1,2000)>'
+        quantity: '<numberBetween(1,10)>'
+        createdAt: '<dateTimeBetween("-4 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
 
 App\Entity\Consumable:
-    supply{1..35}:
-        name (unique): "<word()>"
-        reference (unique): <numberBetween(1,2000)>
-        quantity : <numberBetween(1,10)>
-        family: "<word()>"
-        createdAt: "<dateTimeBetween("-4 years", "now")>"
-        updatedAt: "<dateTimeBetween($createdAt, "now")>"
-        machine: "@machine*"
+    consumable_{1..50}:
+        machine: '@machine*'
+        name (unique): '<word()>'
+        family: '<word()>'
+        reference (unique): '<numberBetween(1,2000)>'
+        quantity : '<numberBetween(1,10)>'
+        createdAt: '<dateTimeBetween("-4 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
 
 App\Entity\Envelope:
-    supply{1..50}:
-        name (unique): "<word()>"
+    envelope_{1..50}:
+        name (unique): '<word()>'
         reference (unique): <numberBetween(1,4000)>
-        quantity : <numberBetween(1000,500000)>
-        createdAt: "<dateTimeBetween("-6 years", "now")>"
-        updatedAt: "<dateTimeBetween($createdAt, "now")>"
+        quantity : '<numberBetween(1000,500000)>'
+        createdAt: '<dateTimeBetween("-6 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
         
 App\Entity\User:
     user_1:
-        email: "sa@mail"
+        email: 'sa@mail'
         roles: ["ROLE_SUPERADMIN"]
-        password: "\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74"
-        firstname: "<firstname()>"
-        lastname: "SuAdmin"
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'SuAdmin'
     user_2:
-        email: "a@mail"
+        email: 'a@mail'
         roles: ["ROLE_ADMIN"]
-        password: "\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74"
-        firstname: "<firstname()>"
-        lastname: "Admin"
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'Admin'
     user_3:
-        email: "u@mail"
+        email: 'u@mail'
         roles: ["ROLE_USER"]
-        password: "\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74"
-        firstname: "<firstname()>"
-        lastname: "User"
+        password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$OjieeXenS5A4DoXcyGPzaA\$y/LSCfnVCB5qF+zOmdtVnUxr+YpFpqjwuMkIRL6Hz74'
+        firstname: '<firstname()>'
+        lastname: 'User'
 
 
 
