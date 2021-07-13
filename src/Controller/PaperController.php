@@ -91,13 +91,11 @@ class PaperController extends AbstractController
      */
     public function delete(Paper $paper)
     {
-        // $this->denyAccessUnlessGranted('DELETE',$paper);
-
+         $this->denyAccessUnlessGranted('DELETE',$paper);
         $em = $this->getDoctrine()->getManager();
         $em->remove($paper);
         $em->flush();
 
-        // On redirige sur la liste des départements
         return $this->redirectToRoute('paper_browse');
     }
 }

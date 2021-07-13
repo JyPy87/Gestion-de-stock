@@ -30,7 +30,7 @@ class ConsumableController extends AbstractController
     /**
      * @Route("read/{id}", name="item", requirements={"id"="\d+"} )
      */
-/*    public function read(Consumable $consumable)
+    public function read(Consumable $consumable)
     {
         return $this->render('consumable/read.html.twig',[
             'consumable'=>$consumable,
@@ -40,7 +40,7 @@ class ConsumableController extends AbstractController
     /**
      * @Route("edit/{id}", name="edit", requirements={"id"="\d+"})
      */
- /*   public function edit(Consumable $consumable, Request $request): Response
+    public function edit(Consumable $consumable, Request $request): Response
     {
        
         $form = $this->createForm(AddConsumableType::class, $consumable);
@@ -60,7 +60,7 @@ class ConsumableController extends AbstractController
     /**
      * @Route("add", name="add")
      */
-/*    public function add(Request $request, EntityManagerInterface $em)
+    public function add(Request $request, EntityManagerInterface $em)
     {
         $consumable = new Consumable;
 
@@ -85,7 +85,7 @@ class ConsumableController extends AbstractController
     /**
      * @Route("delete/{id}", name="delete")
      */
- /*   public function delete(Consumable $consumable)
+    public function delete(Consumable $consumable)
     {
        // $this->denyAccessUnlessGranted('DELETE',$consumable);
 
@@ -96,5 +96,5 @@ class ConsumableController extends AbstractController
         // On redirige sur la liste des départements
         return $this->redirectToRoute('consumable_browse');
     }
-    */
+    
 }

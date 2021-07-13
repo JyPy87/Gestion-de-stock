@@ -5,7 +5,7 @@
 	<div class="d-flex justify-content-between mt-4">
 		<h1 class="mt-1">Stock consommables</h1>
 		{% if is_granted('ROLE_ADMIN') %}
-			<a href="{{path('envelope_add')}}">
+			<a href="{{path('consumable_add')}}">
 				<button type="button" class="btn btn-primary">Ajouter</button>
 			</a>
 		{% endif %}
@@ -27,7 +27,7 @@
 			<tr class="table-light">
 
 				<th scope="row">
-					<a href="{{path('envelope_read',{'id':consumable.id}) }}">{{consumable.name}}</a>
+					<a href="{{path('consumable_item',{'id':consumable.id}) }}">{{consumable.name}}</a>
 				</th>
 
 				<td>{{consumable.reference}}</td>
