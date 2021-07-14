@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="mb-3">
+
+		{{form_start(form)}}
+
+		<div class="form-label mt-4">
+			{{form_label(form.name,'Nom')}}
+		</div>
+		{{form_widget(form.name)}}
+
+		<div class="form-label mt-4">
+			{{form_label(form.reference,'Réference')}}
+		</div>
+		{{form_widget(form.reference) }}
+
+		<div class="form-label mt-4">
+			{{form_label(form.quantity,'Quantité')}}
+		</div>
+		{{form_widget(form.quantity) }}
+		
+		<div class="form-label mt-4">
+			{{form_label(form.machine,'Machine')}}
+		</div>
+		{{form_widget(form.machine) }}
+
+		<div class="form-label mt-4">
+			{{form_label(form.family,'Famille')}}
+		</div>
+		{{form_widget(form.family) }}
+
+
+		<button class="btn btn-primary mt-3">Ajouter</button>
+		{{form_end(form)}}
+	</div>
+
+{% endblock %}
