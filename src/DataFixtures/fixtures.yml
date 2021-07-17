@@ -36,6 +36,14 @@ App\Entity\Envelope:
         quantity : '<numberBetween(1000,500000)>'
         createdAt: '<dateTimeBetween("-6 years", "now")>'
         updatedAt: '<dateTimeBetween($createdAt, "now")>'
+
+App\Entity\Information:
+    information_{1..50}:
+        title: '<words(2, true)>'
+        body : '<words(50, true)>'
+        author: '@user*'
+        createdAt: '<dateTimeBetween("-6 years", "now")>'
+        updatedAt: '<dateTimeBetween($createdAt, "now")>'
         
 App\Entity\User:
     user_1:
