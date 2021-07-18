@@ -42,6 +42,8 @@ class Information
      */
     private $updatedAt;
 
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,4 +108,5 @@ class Information
 
         return $this;
     }
+  
 }
